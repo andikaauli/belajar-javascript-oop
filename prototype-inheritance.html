@@ -8,25 +8,30 @@
 <body>
     <script>
         function Employee(name) {
-            this.name - name;
+            this.name = name;
         }
 
         function Manager(name) {
             this.name = name;
         }
 
-        Manager.protoype = Employee.prototype;
-        Manager.prototype.sayHello = function() {
+        Manager.prototype = Object.create(Employee.prototype); //kok ga berfungsi ya
+        Manager.prototype.sayHello = function(name) {
             console.info(`Hello ${name}, my name is Manager ${this.name}`);
         }
 
-        Employee.prototype.sayHello = function() {
+        Employee.prototype.sayHello = function(name) {
             console.info(`Hello ${name}, my name is Employee ${this.name}`);
         }
 
-        const Employee = new Employee("Eko");
-        const Manager = new Manager("Kurniawan");
+        const employee = new Employee("Budi");
+        employee.sayHello("Joko");
 
+        const manager = new Manager("Eko");
+        manager.sayHello("Joko");
+
+        console.info(employee);
+        console.info(manager)
     </script>
 </body>
 </html>
