@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        function Person(firstName, lastName){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.sayHello = function (name) {
+                console.info(`Hello ${name}, my name is ${this.firstName} ${this.lastName}`)
+            }
+        }
+
+        const eko = new Person("Eko", "Kurniawan")
+        eko.sayHello("Budi")
+
+        const budi = new Person()
+        budi.firstName = "Budi"
+        budi.lastName = "Utomo"
+        budi.sayHello("Eko")
+
+        console.log(eko);
+        console.log(budi);
+    </script>
+</body>
+</html>
